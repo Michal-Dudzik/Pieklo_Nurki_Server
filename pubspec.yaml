@@ -1,0 +1,30 @@
+name: pieklo_server_flutter
+description: "Pieklo Server"
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.5.0-153.0.dev <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  ffi: ^2.1.2
+  pretty_qr_code: ^3.3.0
+  flutter_blue_plus: ^1.32.8
+  flutter_riverpod: ^2.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^4.0.0
+
+
+flutter:
+  uses-material-design: true
