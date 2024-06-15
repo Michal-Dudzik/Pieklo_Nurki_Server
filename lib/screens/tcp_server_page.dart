@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:pieklo_server_flutter/services/game_window_finder.dart';
-import 'package:pieklo_server_flutter/services/tcp_server.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pieklo_server_flutter/providers/providers.dart';
+import 'package:pieklo_server_flutter/services/servers/tcp_server.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
 
-class TcpServerPage extends StatefulWidget {
+class TcpServerPage extends ConsumerStatefulWidget {
   @override
-  _TcpServerPageState createState() => _TcpServerPageState();
+  _ServerPageState createState() => _ServerPageState();
 }
 
-class _TcpServerPageState extends State<TcpServerPage> {
+class _ServerPageState extends ConsumerState<TcpServerPage> {
   String _ipAddress = '0.0.0.0';
   int _port = 5000;
   bool _isClientConnected = false;
-  bool _isWindowFound = false;
-  late GameWindowFinder _gameWindowFinder;
+  late TcpServer _tcpServer;
 
   @override
   void initState() {
     super.initState();
-    _gameWindowFinder = GameWindowFinder();
+    _tcpServer = TcpServer(ref);
+    _startServer();
+  }
 
-    startServer((ip, port) {
+  void _startServer() {
+    _tcpServer.startServer((ip, port) {
       setState(() {
         _ipAddress = ip;
         _port = port;
@@ -28,37 +31,21 @@ class _TcpServerPageState extends State<TcpServerPage> {
     }, (clientConnected) {
       setState(() {
         _isClientConnected = clientConnected;
-        if (_isClientConnected) {
-          findGameWindow();
-        } else {
-          setState(() {
-            _isWindowFound = false;
-          });
-        }
       });
     });
   }
 
-  void findGameWindow() {
-    final windowTitle = 'HELLDIVERS™ 2';
-    final windowFound = _gameWindowFinder.findGameWindow(windowTitle);
-
-    if (windowFound != 0) {
-      setState(() {
-        _isWindowFound = true;
-      });
-    }
-  }
-
   @override
   void dispose() {
-    stopServer();
+    _tcpServer.stopServer();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final serverAddress = '$_ipAddress:$_port';
+    final serverAddress = '$_ipAddress;$_port';
+    final isWindowFound = ref.watch(gameWindowStateProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Server Status'),
@@ -72,7 +59,7 @@ class _TcpServerPageState extends State<TcpServerPage> {
             SizedBox(height: 10),
             Text('Client connected: ${_isClientConnected ? "Yes" : "No"}'),
             SizedBox(height: 10),
-            Text('Game window found: ${_isWindowFound ? "Yes" : "No"}'),
+            Text('Game window found: ${isWindowFound ? "Yes" : "No"}'),
             SizedBox(height: 20),
             Center(
               child: PrettyQr(

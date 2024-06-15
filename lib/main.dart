@@ -5,10 +5,12 @@ import 'package:pieklo_server_flutter/screens/landing_page.dart';
 import 'package:pieklo_server_flutter/screens/tcp_server_page.dart';
 
 void main() {
-  runApp(ProviderScope(child: MyApp()));
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -16,7 +16,7 @@ class GameWindowFinder {
 
   void _loadLibrary() {
     if (Platform.isWindows) {
-      _dll = DynamicLibrary.open('lib/services/game_finder.dll');
+      _dll = DynamicLibrary.open('lib/services/dll/game_finder.dll');
       _findWindowByTitle =
           _dll!.lookupFunction<FindWindowByTitleFunc, FindWindowByTitle>(
         'FindWindowByTitle',
