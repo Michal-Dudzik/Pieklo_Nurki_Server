@@ -1,16 +1,44 @@
-# pieklo_server_flutter
+# Pieklo Nurki Server
 
-Pieklo Server
+# Overview
+Piekło Nurki Server is a desktop application developed using Flutter for the glory of the super earth.
+
+# Features
+### Create a TCP/IP Server that allows to mobile app to connect with and controll game! 
+![landing_page](https://github.com/Michal-Dudzik/Pieklo_Nurki_Server/assets/33695200/9fd7f2d5-f820-432e-9a23-1f1c320c8767)
+![server_console](https://github.com/Michal-Dudzik/Pieklo_Nurki_Server/assets/33695200/ab38d75f-617f-4f89-a306-2dcabdb7b3d5)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
+Flutter SDK: Install Flutter 
+<br />Dart SDK (comes with Flutter)
+<br />An IDE like Visual Studio Code or Android Studio
 
-A few resources to get you started if this is your first Flutter project:
+### Installation
+Clone the repository:
+```
+git clone https://github.com/Michal-Dudzik/Pieklo_Nurki_Server.git
+cd pieklo_nurki_server
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Install dependencies:
+```
+flutter pub get
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Run the app:
+<br />if you're on windows:
+<be />flutter run -d windows
+
+
+# Contributing
+Contributions are welcome! If you have any ideas for improvements, feel free to fork the repository and submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+### Contributing Steps
+Fork the repository.
+<br />Create a new branch ```git checkout -b feature-branch```
+<br />Make your changes.
+<br />Commit your changes ```git commit -m 'Add some feature'```
+<br />Push to the branch ```git push origin feature-branch```
+<br />Open a Pull Request.
