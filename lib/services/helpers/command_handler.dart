@@ -7,22 +7,22 @@ void handleCommand(WidgetRef ref, String message) {
   final keyPressSender = ref.read(keyPressSenderProvider);
 
   switch (message) {
-    case 'U':
+    case 'UP':
       keyPressSender.handleKeyPress(ref, VK_UP);
       break;
-    case 'D':
+    case 'DOWN':
       keyPressSender.handleKeyPress(ref, VK_DOWN);
       break;
-    case 'L':
+    case 'LEFT':
       keyPressSender.handleKeyPress(ref, VK_LEFT);
       break;
-    case 'R':
+    case 'RIGHT':
       keyPressSender.handleKeyPress(ref, VK_RIGHT);
       break;
-    case 'T':
+    case 'TRUE':
       keyPressSender.handleKeyPress(ref, VK_CONTROL, keyDown: true);
       break;
-    case 'F':
+    case 'FALSE':
       keyPressSender.handleKeyPress(ref, VK_CONTROL, keyDown: false);
       break;
     default:

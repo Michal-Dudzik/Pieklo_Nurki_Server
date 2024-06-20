@@ -16,6 +16,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pieklo Server',
+      theme: ThemeData(
+        fontFamily: 'ChakraPetch',
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+        useMaterial3: true,
+      ),
       initialRoute: '/',
       routes: {
         '/': (context) => LandingPage(),

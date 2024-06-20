@@ -2,8 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../helpers/command_handler.dart';
+import 'package:pieklo_server_flutter/services/helpers/command_handler.dart';
 
 typedef ServerAddressCallback = void Function(String ip, int port);
 typedef ClientStatusCallback = void Function(bool clientConnected);
@@ -74,6 +73,5 @@ class TcpServer {
     clientSocket?.write('STOP');
     clientSocket?.flush();
     serverSocket?.close();
-    clientSocket?.close();
   }
 }
