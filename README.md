@@ -29,8 +29,16 @@ flutter pub get
 
 Run the app:
 <br />if you're on windows:
-<be />flutter run -d windows
+<be />
+```
+flutter run -d windows
+```
 
+Build the app:
+<be />
+```
+flutter build <platform>
+```
 
 # Contributing
 Contributions are welcome! If you have any ideas for improvements, feel free to fork the repository and submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
