@@ -19,7 +19,8 @@ class KeyPressSender {
 
   void _loadLibrary() {
     if (Platform.isWindows) {
-      _dll = DynamicLibrary.open('lib/services/dll/key_press_sender.dll');
+      _dll = DynamicLibrary.open(
+          'data/flutter_assets/lib/services/dll/key_press_sender.dll');
       _sendKeyPress = _dll!.lookupFunction<SendKeyPressFunc, SendKeyPress>(
         'SendKeyPress',
       );
